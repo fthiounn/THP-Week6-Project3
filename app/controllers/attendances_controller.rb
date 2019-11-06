@@ -13,26 +13,25 @@ class AttendancesController < ApplicationController
 
   # GET /attendances/new
   def new
-    @attendance = Attendance.new
+    create
   end
 
   # GET /attendances/1/edit
   def edit
   end
-
   # POST /attendances
   # POST /attendances.json
   def create
-    @attendance = Attendance.new(attendance_params)
+    @attendance = Attendance.new(user: current_user, stripe_customer_id: params[:token], event: Event.find(params[:event]))
 
-    respond_to do |format|
-      if @attendance.save
-        format.html { redirect_to @attendance, notice: 'Attendance was successfully created.' }
-        format.json { render :show, status: :created, location: @attendance }
-      else
-        format.html { render :new }
-        format.json { render json: @attendance.errors, status: :unprocessable_entity }
-      end
+    if @attendance.save
+      flash[:success] = "You successfuly attended an event"
+      redirect_to :controller => 'users', :action => 'show', id: current_user.id
+    else
+      # This line overrides the default rendering behavior, which
+      # would have been to render the "create" view.
+      flash.now[:danger] = "Error attemprint to attend an event"
+      render :action => 'new'
     end
   end
 
