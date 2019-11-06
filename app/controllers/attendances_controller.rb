@@ -3,7 +3,10 @@ class AttendancesController < ApplicationController
   # GET /attendances
   # GET /attendances.json
   def index
-    @attendances = Attendance.all
+    @guests = User.joins(:attendances).where('attendances.event_id = ?', params[:event_id])
+    puts @guests
+    @event = Event.find(params[:event_id])
+    @admin = User.find(@event.admin_id)
   end
 
   # GET /attendances/1

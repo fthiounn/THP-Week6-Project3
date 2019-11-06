@@ -20,18 +20,13 @@
 a {
 	text-decoration: none !important;
 }
-
-
-.card-event:hover {
-	background-color: #19a2b845;
-
+a:hover {
+	background-color: transparent;
+	color: black;
 }
 .carousel-control-next:hover {
 	background-color: transparent;
 }
 .carousel-control-prev:hover {
 	background-color: transparent;
-}
-input.body {
-  width:95%;
 }

@@ -52,11 +52,6 @@ button:hover {
   min-height: 100%;
   padding: 15px;
 
-  background: #009bff;
-  background: -webkit-linear-gradient(left, #191919, #191919);
-  background: -o-linear-gradient(left, #191919, #191919);
-  background: -moz-linear-gradient(left, #191919, #191919);
-  background: linear-gradient(left, #191919, #191919);
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -70,7 +65,6 @@ button:hover {
 
 .container-contact1 {
   width: 1163px;
-  background: #fff;
   border-radius: 10px;
   overflow: hidden;
 
@@ -195,7 +189,6 @@ textarea.input1 + .shadow-input1 {
   min-width: 193px;
   height: 50px;
   border-radius: 25px;
-  background: #57b846;
   font-family: Montserrat-Bold;
   font-size: 15px;
   line-height: 1.5;
@@ -224,9 +217,6 @@ textarea.input1 + .shadow-input1 {
   transition: all 0.4s;
 }
 
-.contact1-form-btn:hover {
-  background: #333333;
-}
 
 .contact1-form-btn:hover i {
   -webkit-transform: translateX(10px);

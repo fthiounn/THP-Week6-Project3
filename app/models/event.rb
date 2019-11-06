@@ -11,8 +11,12 @@
   has_many :users, through: :attendances
 
   def divisible_by_five
-    if (self.duration % 5) != 0
-      self.errors[:base] << "Number must be divisible by 5!"
+    if !(self.duration).nil?
+      if (self.duration % 5) != 0
+        self.errors[:base] << "Number must be divisible by 5!"
+      end
+    else
+      self.errors[:base] << "Number must be positive"
     end
   end
 end
