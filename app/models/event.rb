@@ -5,7 +5,7 @@
   validates :title, presence: true, length: { in: 5..140 }
   validates :description, presence: true, length: { in: 20..1000}
   validates :price, presence: true
-  validates_inclusion_of :price, :in => 1..1000
+  validates_inclusion_of :price, :in => 0..1000
   validates :location, presence: true
   has_many :attendances
   has_many :users, through: :attendances
@@ -18,5 +18,9 @@
     else
       self.errors[:base] << "Number must be positive"
     end
+  end
+
+  def is_free?
+    self.price == 0
   end
 end

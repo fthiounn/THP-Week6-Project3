@@ -48,12 +48,14 @@
 			         		<p class="text-info"><%= event.start_date.strftime("%B %d, %Y")%></p>
 			         		<div class="mt-2	">
 			         		  <span class="text-primary">
-			         		  <% if user_signed_in?%>
+			         		  <% if user_signed_in? %>
 			         		    <% if is_event_admin?(get_admin(event))%>
 			         		      You are administrator to this event | <%= link_to "Event Admin Page",attendances_path(event_id: event.id) %>
 			         		    <% elsif is_current_user_guest?(event)%>
 			         		      You are already registered for this event !
-			         		    <% else %>
+			         		    <% elsif event.is_free? %>
+			         		    	<%= link_to "Join for free", new_attendance_path(event: event,token: "0" ) , class: "btn btn-danger text-white" %>
+			         		    <% else event.is_free? %>
 			         		      <%= link_to "Buy Now", new_event_charge_path(event) , class: "btn btn-danger text-white" %>
 			         		    <% end %>
 			         		  <% end %>
