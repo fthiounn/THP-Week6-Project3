@@ -1,4 +1,4 @@
-# THP - Week 6 - Project 3 - Eventbrite : Devise et premières views
+# THP - Week 6 - Project 3 - Stripe ton Eventbrite
 # Francois THIOUNN 
 
 # Notes & Use :
