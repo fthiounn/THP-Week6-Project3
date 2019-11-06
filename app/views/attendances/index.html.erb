@@ -39,7 +39,7 @@
 <!-- DISPLAY DES GUESTS-->
 <h4 class="text-center m-3">You have  <%= @guests.size %> guests for this event.</h4>
 <% @guests.each do |guest| %>
-<p><%= guest.first_name %> <%= guest.last_name %> joined :<%= attended_on?(guest) %></p>
+<p><%= guest.first_name %> <%= guest.last_name %> joined :<%= attended_on?(guest,@event) %></p>
 <% end %>
 
 

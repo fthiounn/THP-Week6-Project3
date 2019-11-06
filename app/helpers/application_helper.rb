@@ -8,7 +8,7 @@ module ApplicationHelper
   def get_admin(event)
     User.find(event.admin_id)
   end
-  def attended_on?(guest)
-    Attendance.where(user_id: guest.id).first.created_at
+  def attended_on?(guest, event)
+    Attendance.where(user_id: guest.id, event_id: event.id).first.created_at
   end
 end
